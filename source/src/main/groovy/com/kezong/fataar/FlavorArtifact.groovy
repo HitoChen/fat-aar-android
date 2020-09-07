@@ -88,7 +88,7 @@ class FlavorArtifact {
         def buildPath = project.buildDir.path
         def outputName
         if (Utils.compareVersion(project.gradle.gradleVersion, "5.1.0") >= 0 && Utils.compareVersion(version, "3.4") < 0) {
-            outputName = "$buildPath/outputs/aar/${unResolvedArtifact.moduleName}.aar"
+            outputName = "$buildPath/outputs/aar/${unResolvedArtifact.moduleName}-${variant.buildType.name}.aar"
         } else {
             outputName = "$buildPath/outputs/aar/$unResolvedArtifact.moduleName-$variant.flavorName-${variant.buildType.name}.aar"
         }
